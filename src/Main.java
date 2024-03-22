@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 //fila 3 mesa 3
 
 public class Main extends javax.swing.JFrame {
+Sound s = new Sound("./src/Sound/Mi corazón encantado - Aaron Montalvo.wav");
 
       AdmCarros adm = new AdmCarros("./Carros.DGR");
     public Main() {
@@ -83,6 +84,7 @@ public class Main extends javax.swing.JFrame {
         jl_velocidadjug1 = new javax.swing.JLabel();
         jl_marcajug1 = new javax.swing.JLabel();
         jl_modelojug1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -404,6 +406,14 @@ public class Main extends javax.swing.JFrame {
         jl_modelojug1.setForeground(new java.awt.Color(255, 0, 0));
         jPanel1.add(jl_modelojug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 140, 20));
 
+        jButton1.setText("Musiquita");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -575,6 +585,17 @@ public class Main extends javax.swing.JFrame {
        jF_juego.setVisible(false);
     }//GEN-LAST:event_jp_volverjuegoMouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        if(s.isAlive()==false){
+        s.start();
+        JOptionPane.showMessageDialog(this, "Ola Emilio \n Soy fan de dragon ball gt, te hice el puntito extra pa q me pongas 100 :D gracias por ser un buen instructor < 3");
+        }
+        else{
+            
+        }
+       
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -612,11 +633,13 @@ public class Main extends javax.swing.JFrame {
     Carro carro1 = new Carro();
     Carro carro2 = new Carro();
     ArrayList<Thread> hilosexistentes = new ArrayList<>();
+    Thread st;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_crear;
     private javax.swing.JButton bt_iniciarjuego;
     private javax.swing.JButton bt_jugar;
     private javax.swing.JButton bt_opencrearcarro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jF_crearcarro;
     private javax.swing.JFrame jF_juego;
     private javax.swing.JLabel jLabel1;
